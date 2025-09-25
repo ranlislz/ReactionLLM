@@ -52,7 +52,7 @@ pip install -r requirements.txt
 Train a model on specific tasks:
 ```bash
 python train.py \
-    --model_path Qwen/Qwen2.5-7B-Instruct \
+    --model_name Qwen/Qwen2.5-7B-Instruct \
     --tasks retrosynthesis \
     --dataset_variants mapped \
     --cuda_device 0 \
@@ -65,37 +65,12 @@ python train.py \
 Evaluate a trained model:
 ```bash
 python evaluate.py \
-    --model_path [mpdel_path] \
+    --model_name [model_path] \
     --tasks retrosynthesis \
     --retrosynthesis_dataset test_50K.jsonl \
     --cuda_device 0 \
     --top_k_metrics 1
 ```
-
-## Configuration
-
-### Training Parameters
-
-| Parameter | Description | Default |
-|-----------|-------------|---------|
-| `--model_name` | Model name or path | Qwen/Qwen2.5-7B-Instruct |
-| `--tasks` | Comma-separated tasks to train on | retrosynthesis,retrosynthesis_class,forward_prediction |
-| `--dataset_variants` | Dataset variants to use | mapped,unmapped0,smile,unmappedraw|
-| `--train_epochs` | Number of training epochs | 10 |
-| `--lora_rank` | LoRA rank for adapter training | 64 |
-| `--cuda_device` | CUDA device(s) to use | 0 |
-| `--prompt_style` | System prompt style | with_plan |
-
-### Evaluation Parameters
-
-| Parameter | Description | Default |
-|-----------|-------------|---------|
-| `--tasks` | Tasks to evaluate | retrosynthesis |
-| `--top_k_metrics` | Top-k values to report | 1,3,5,10 |
-| `--batch_size` | Batch size for evaluation | 100000 |
-| `--temperature` | Sampling temperature | 1.3 |
-| `--generate_n` | Number of sequences to generate | 50 |
-| `--n` | Number of top sequences to return | 10 |
 
 ## Dataset Preparation
 
