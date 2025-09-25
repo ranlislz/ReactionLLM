@@ -134,37 +134,6 @@ chemical-reaction-prediction/
 └── README.md                   # This file
 ```
 
-## Example Workflow
-
-### 1. Prepare Datasets
-```bash
-# Ensure your dataset files are in the data/ directory
-ls data/
-# train_50K.jsonl, validation_50K.jsonl, test_50K.jsonl, etc.
-```
-
-### 2. Train a Model
-```bash
-# Train on retrosynthesis with unmapped data
-python train.py \
-    --model_path Qwen/Qwen2.5-0.5B-Instruct \
-    --tasks retrosynthesis \
-    --cuda_device 0 \
-    --train_epochs 3 \
-    --lora_rank 32
-```
-
-### 3. Evaluate the Model
-```bash
-# Evaluate on test set
-python evaluate.py \
-    --model_path loras/Qwen_Qwen2.5-0.5B-Instruct_retrosynthesis_unmapped0_with_plan_32_5_sft \
-    --tasks retrosynthesis \
-    --retrosynthesis_dataset test_50K.jsonl \
-    --cuda_device 0 \
-    --top_k_metrics 1
-```
-
 
 ## Support
 
