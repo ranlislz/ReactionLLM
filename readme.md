@@ -65,7 +65,7 @@ python train.py \
 Evaluate a trained model:
 ```bash
 python evaluate.py \
-    --model_path [mpdel_path] \
+    --model_name   [model_path] \
     --tasks retrosynthesis \
     --retrosynthesis_dataset test_50K.jsonl \
     --cuda_device 0 \
